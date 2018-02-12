@@ -1,27 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-  </head>
-  <body>
-      <div>
-        <div>
-          <div>
-            <img src="{{url_for('static',filename = 'girl-medium-skin-tone.png')}}"></img>
-          </div>
-          <div>
-            <p>Sashana Ramsay</p>
-            <p>@sasha</p>
-            <p>Kingston, Jamaica</p>
-            <p>Joined:{{date}}</p>
-          </div>
-        </div>
-        <div>
-           <p>I am a smart and talented young woman who loves website design and development. Contact me if you'd like to work together on a new project.</p>
-        </div>
-        <button type="button">Follow</button>
-      </div>
-  </body>
-</html>
+{% extends "base.html" %}
+
+{% block main %}
+
+<div class ="section1">
+  <div class ="section2">
+    <div>
+      <img src="{{url_for('static',filename = 'girl-medium-skin-tone.png')}}"></img>
+    </div>
+    <div class = "info">
+      <h2>Sashana Ramsay</h2>
+      <p>@sasha</p>
+      <p>Kingston, Jamaica</p>
+      <p>Joined {{date}}</p>
+    </div>
+  </div>
+  <div class = "intro">
+    <div>
+      <p>I am a smart and talented young woman who loves website design and development. Contact me if you'd like to work together on a new project.</p>
+    </div>
+    <div>
+      <ul class="nav nav-pills" role="tablist">
+          <li class="nav-item followers col-lg-4 col-4 p-0 follow detail">
+              <p class="m-0"><strong>14</strong><br>Post</p>
+          </li>
+          <li class="nav-item following col-lg-4 col-4 p-0">
+              <p class="m-0"><strong>200</strong><br>Following</p>
+          </li>
+          <li class="nav-item works col-lg-4 col-4 p-0">
+              <p class="m-0"><strong>500</strong><br>Followers</p>
+          </li>
+        </ul>
+    </div>
+  </div>
+  <div id="followbutton">
+    <button type="button">Follow</button>
+  </div>
+</div>
+      
+{% endblock %}
 
         

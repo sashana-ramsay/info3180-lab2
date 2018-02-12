@@ -7,6 +7,7 @@ This file creates your application.
 
 from app import app
 from flask import render_template, request, redirect, url_for, flash
+import datetime
 
 
 ###
@@ -22,7 +23,7 @@ def home():
 @app.route('/about/')
 def about():
     """Render the website's about page."""
-    return render_template('about.html', name="Mary Jane")
+    return render_template('about.html', name="Sashana Ramsay")
 
 
 ###
@@ -37,7 +38,12 @@ def send_text_file(file_name):
 
 @app.route('/profile')
 def profile():
+    date = format_date_joined()
+    return render_template('profile.html', date = date)
     
+def format_date_joined():
+    date_joined = datetime.date(2018, 2, 1)
+    return date_joined.strftime("%B %Y")
     
 @app.after_request
 def add_header(response):
